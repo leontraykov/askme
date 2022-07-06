@@ -5,6 +5,11 @@
   <p>user_id: <b><%= @question.user_id %></b></p>
 
   <div class="mt mb">
+
+  <% unless @question.hidden? %>
+    <%= button_to fa_icon('eye-slash'), hide_question_path(@question), method: :patch, title: 'Hide this Question' %> 
+  <% end %>
+
     <%= link_to fa_icon('pencil'), edit_question_path(@question), title: 'Edit this Question' %>
     <%= button_to fa_icon('trash-o'), question_path(@question), method: :delete, title: 'Delete this Question', 
     form: {data: {turbo_confirm: 'This question will be deleted! Are you sure?'}} %>
