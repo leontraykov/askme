@@ -1,2 +1,2 @@
-This is my clone of an Aske web-site. 
+This is my clone of an Askme web-site. 
 Its going to be improved
