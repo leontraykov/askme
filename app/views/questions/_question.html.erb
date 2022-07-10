@@ -1,0 +1,21 @@
+<div class="mb-sm">
+  <div>
+    <%= question.body%>
+  </div>
+</div>
+
+<div class ="text-sm question-footer">
+  <div class="text-gray">
+    <%= l(question.created_at,  format: :short)%>
+  </div>
+
+  <div>
+    <% unless question.hidden? %>
+      <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :patch, title: 'Hide this Question' %> 
+    <% end %>
+
+    <%= link_to fa_icon('pencil'), edit_question_path(question), title: 'Edit this Question' %>
+    <%= button_to fa_icon('trash-o'), question_path(question), method: :delete, title: 'Delete this Question',
+    form: {data: {turbo_confirm: 'This question will be deleted! Are you sure?'}} %>
+  </div>
+</div>
