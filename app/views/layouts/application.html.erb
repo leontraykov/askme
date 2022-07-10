@@ -12,6 +12,12 @@
 
   <body>
     <div class="wrapper">
+    <p class="title-lg text-white mb">ASK ME! <small class="text-white text-sm">by LeonT</small></p>
+
+    <% unless flash[:notice].nil? %>
+      <p class="mb mt message message-notice"><%= flash[:notice] %></p>
+    <% end %>
+
       <%= yield %>
     </div>
   </body>

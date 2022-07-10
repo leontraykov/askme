@@ -1,21 +1,19 @@
 <div class="container">
-  <h2 class="title-lg mb">All questions:</h2>
-
-  <% @questions.each do |question| %>
-    <% question_first_words = "#{question.id}: #{question.body.split[0,3].join(" ").capitalize}" %>
-    <% if question.body.split.size > 3 %>
-      <% question_title = question_first_words + "..." %>
-    <% else %>
-     <% question_title = question_first_words %>
-    <% end %>
-
-    <% hidden_klass = question.hidden ? "question-hidden" : "question-visible" %>
-    <%= content_tag :p, class: ["mb-sm", hidden_klass] do %>
-      <%= link_to "Question #{question_title}", question_path(question) %>
-    <% end %>
-  <% end %>
-
   <div class="mt">
     <%= link_to 'Create new question', new_question_path, class: 'button button-main' %>
   </div>
+
+  <p class="mt">
+    <%= render 'form', question: @question %>
+  </p>
 </div>
+
+<div class="container mt-sm">
+  <h2 class="title-lg mb">We got here <%= @questions.count %> questions:</h2>
+</div>
+
+<% @questions.each do |question| %>
+  <div class="mt-sm container">
+    <%= render question %>
+  </div>
+<% end %>
