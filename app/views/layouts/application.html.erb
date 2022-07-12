@@ -12,11 +12,28 @@
 
   <body>
     <div class="wrapper">
-    <p class="title-lg text-white mb">ASK ME! <small class="text-white text-sm">by LeonT</small></p>
 
-    <% unless flash[:notice].nil? %>
-      <p class="mb mt message message-notice"><%= flash[:notice] %></p>
-    <% end %>
+      <div class="navbar">
+        <p class="title-sm text-bold ml-sm"><%= link_to 'ASK ME!', root_path %><small class="text-white text-sm">by LeonT</small></p>
+
+        <div>
+          <% if current_user.present? %>
+            <%= content_tag 'span', "@#{current_user.nickname}", class: 'mr-sm' %>
+            <%= button_to 'Sign Out', session_path, method: :delete, class: 'mr-sm' %>
+          <% else %>
+            <p class="text-white text-sm">
+            <%= link_to 'Sign up', new_user_path, class: 'button button-yellow mr-sm ml-sm' %>
+            <%= link_to 'Sign in', new_session_path, class: 'button button-yellow mt mb mr-sm' %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+
+      <% if flash[:notice].present? %>
+        <p class="mb mt message message-notice"><%= flash[:notice] %></p>
+      <% elsif flash[:alert].present? %>
+        <p class="mb mt message message-alert"><%= flash[:alert] %></p>
+      <% end %>
 
       <%= yield %>
     </div>

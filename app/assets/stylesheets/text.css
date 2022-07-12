@@ -30,3 +30,7 @@ a, button {
 .text-white {
   color: white;
 }
+
+.text-bold {
+  font-weight: bold;
+}
