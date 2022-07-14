@@ -31,6 +31,10 @@ a, button {
   color: white;
 }
 
+.text-red {
+  color: rgb(194, 0, 0);
+}
+
 .text-bold {
   font-weight: bold;
 }

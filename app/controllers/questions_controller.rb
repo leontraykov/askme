@@ -1,9 +1,15 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[destroy show update edit hide]
   def create
-    question = Question.create(question_params)
+    @question = Question.create(question_params)
 
-    redirect_to question, notice: "New question has been asked"
+    if @question.save
+      redirect_to question, notice: "New question has been asked"
+    else
+      flash.now[:alert] = 'Sorry, but your question got a problem'
+
+      render :new
+    end
   end
 
   def index
