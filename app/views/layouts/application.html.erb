@@ -18,7 +18,7 @@
 
         <div>
           <% if current_user.present? %>
-            <%= content_tag 'span', "@#{current_user.nickname}", class: 'mr-sm' %>
+            <%= link_to "#{display_nickname(current_user)}", edit_user_path(current_user), class: 'text-md mr-sm' %>
             <%= button_to 'Sign Out', session_path, method: :delete, class: 'mr-sm' %>
           <% else %>
             <p class="text-white text-sm">
