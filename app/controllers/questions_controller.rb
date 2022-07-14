@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
     @question = Question.create(question_params)
 
     if @question.save
-      redirect_to question, notice: "New question has been asked"
+      redirect_to @question, notice: "New question has been asked"
     else
       flash.now[:alert] = 'Sorry, but your question got a problem'
 
