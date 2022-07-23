@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
+  validates :header_color, format: { with: /\A#[a-f0-9]{6}\z/i }
+
   def downcase_nickname
     nickname.downcase!
   end
