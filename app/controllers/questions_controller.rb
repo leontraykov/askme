@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[destroy show update edit hide]
+
   def create
-    @question = Question.create(question_params)
+    @question = Question.new(question_params)
 
     if @question.save
       redirect_to @question, notice: "New question has been asked"
@@ -44,14 +45,14 @@ class QuestionsController < ApplicationController
 
   def edit
   end
-end
 
-private
+  private
 
-def question_params
-  params.require(:question).permit(:body, :user_id)
-end
+  def question_params
+    params.require(:question).permit(:body, :user_id)
+  end
 
-def set_question
-  @question = Question.find(params[:id])
+  def set_question
+    @question = Question.find(params[:id])
+  end
 end
