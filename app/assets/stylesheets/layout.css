@@ -22,7 +22,6 @@ body {
 .navbar {
   height: 3em;
   align-items: center;
-  background-color: #370617;
   color: white;
   display: flex;
   justify-content: space-between;

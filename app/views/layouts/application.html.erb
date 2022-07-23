@@ -12,8 +12,7 @@
 
   <body>
     <div class="wrapper">
-
-      <div class="navbar">
+      <%= content_tag :div, class: "navbar", style: "background-color: #{current_user_header_color}" do %>
         <p class="title-sm text-bold ml-sm"><%= link_to 'ASK ME!', root_path %><small class="text-white text-sm">by LeonT</small></p>
 
         <div>
@@ -27,7 +26,7 @@
             </p>
           <% end %>
         </div>
-      </div>
+      <% end %>
 
       <% if flash[:notice].present? %>
         <p class="mb mt message message-notice"><%= flash[:notice] %></p>
