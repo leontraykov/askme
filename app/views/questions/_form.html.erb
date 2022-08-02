@@ -1,10 +1,23 @@
   <%= form_with model: question, data: {turbo: false} do |form| %>
+    <%= form.hidden_field :user_id %>
+
+    <% if current_user.present? %>
+      <%= form.hidden_field :author %>
+    <% end %>
+
     <p><%= form.label :body, 'Question text' %></p>
     <p><%= form.text_area :body, rows: 5, class: 'form-text-area' %></p>
-    <p class="mt"><%= form.label :user_id %></p>
-    <p><%= form.text_field :user_id, class: 'form-text-field' %></p>
-    <p class="mt"><%= form.submit 'Ask this question', class: 'button button-main' %>
+
+    <% if question.persisted? %>
+      <p class="mt"><%= form.label :answer, 'Answer text' %></p>
+      <p><%= form.text_area :answer, rows: 5, class: 'form-text-area' %></p>
+    <% end %>
+
+    <% question_act = (question.answer.present? ? 'Edit this question' : 'Answer')%>
+
+    <p class="mt"><%= form.submit question_act, class: 'button button-main' %>
       or you can 
-    <%= link_to "Get back", :back%>
+    <%= link_to "Get back", :back %>
     </p> 
   <% end %>
+  

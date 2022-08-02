@@ -1,0 +1,39 @@
+<div class="user-box">
+  <h2 class="title-lg mt-lg"><%= @user.name %></h2>
+
+  <% if current_user == @user %>
+    <p class="mt mb-lg">
+      <%= link_to fa_icon('pencil'), edit_user_path(@user) %>
+    </p>
+  <% end %>
+
+  <p class="text-bold mt mb-lg">@<%= @user.nickname %></p>
+</div>
+
+<% if @questions.any? %>
+
+  <div class="container">
+    <div class="container">
+      <%= link_to 'AskMe', new_question_path(user_id: @user.id), class: "button button-yellow" %>
+
+      <p class="mt">
+        <%= render 'questions/form', question: @question %>
+      </p>
+    </div>
+  </div>
+
+  <div class="container mt-sm">
+
+    <% if @questions.count == 1 %>
+      <h2 class="title-lg">We got here <%= @questions.count %> question:</h2>
+    <% else %>
+      <h2 class="title-lg">We got here <%= @questions.count %> questions:</h2>
+    <% end %>
+  </div>
+
+  <% @questions.each do |question| %>
+    <%= render question %>
+  <% end %>
+<% else %>
+  <%= render partial: 'no_questions', locals: {user: @user} %>
+<% end %>

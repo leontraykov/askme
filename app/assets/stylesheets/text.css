@@ -35,6 +35,18 @@ a, button {
   color: rgb(194, 0, 0);
 }
 
+.text-dark-red {
+  color: #9c0c11;
+}
+
 .text-bold {
   font-weight: bold;
+}
+
+.text-light-grey {
+  color: #c0c0c0;
+}
+
+.text-center {
+  text-align: center;
 }

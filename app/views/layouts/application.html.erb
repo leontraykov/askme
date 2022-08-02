@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   </head>
 
   <body>
@@ -17,7 +18,7 @@
 
         <div>
           <% if current_user.present? %>
-            <%= link_to "#{display_nickname(current_user)}", edit_user_path(current_user), class: 'text-md mr-sm' %>
+            <%= link_to "#{display_nickname(current_user)}", user_path(current_user), class: 'text-md mr-sm' %>
             <%= button_to 'Sign Out', session_path, method: :delete, class: 'mr-sm' %>
           <% else %>
             <p class="text-white text-sm">
