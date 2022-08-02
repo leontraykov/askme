@@ -11,13 +11,13 @@
 
   <div class="mb-sm mt">
     <div>
-      <%= question.body%>
+      <%= simple_format(question.body) %>
     </div>
   </div>
 
   <% if question.answer.present? %>
     <div class="mb-sm text-dark-red">
-      <%= question.answer %>
+      <%= simple_format(question.answer) %>
     </div>
   <% end %>
 

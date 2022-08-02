@@ -9,7 +9,7 @@
   <% end %>
 
   <h2 class="title-lg mb-sm">New question</h2>
-  <p class="mb">for <%= link_to "@#{@user.nickname}", user_path(@user) %></p>
+  <p class="mb">for <%= link_to display_nickname(@user), user_path(@user) %></p>
 
 <%= render 'form', question: @question %>
 </div>
