@@ -1,21 +1,43 @@
-<div class="mb-sm">
-  <div>
-    <%= question.body%>
+<div class="container question-separator">
+  <div class="text-sm text-gray question-author">
+    <div class="mb">
+      <% if question.author.present? %>
+        <i>This quesion is asked by <%= link_to display_nickname(question.author), user_path(question.author), class: 'mr' %></i>
+      <% else %>
+        <i>The author did not introduce himself</i>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<div class ="text-sm question-footer">
-  <div class="text-gray">
-    <%= l(question.created_at,  format: :short)%>
+  <div class="mb-sm mt">
+    <div>
+      <%= question.body%>
+    </div>
   </div>
 
-  <div>
-    <% unless question.hidden? %>
-      <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :patch, title: 'Hide this Question' %> 
+  <% if question.answer.present? %>
+    <div class="mb-sm text-dark-red">
+      <%= question.answer %>
+    </div>
+  <% end %>
+
+  <div class ="text-sm question-footer">
+    <div class="text-gray">
+      <%= l(question.created_at, format: :short) %>
+    </div>
+
+    <% if current_user == question.user %>
+      <div>
+        <% edit_icon = (question.answer.present? ? 'pencil' : 'reply')%>
+        <% icon_title = (question.answer.present? ? 'Edit this question' : 'Answer this question')%>
+
+        <%= link_to fa_icon(edit_icon), edit_question_path(question), 
+        title: icon_title, class: 'mr-sm' %>
+
+        <%= button_to fa_icon('trash-o'), question_path(question), 
+        method: :delete, title: 'Delete this question',
+        form: {data: {turbo_confirm: 'This question will be deleted! Are you sure?'}} %>
+      </div>
     <% end %>
-
-    <%= link_to fa_icon('pencil'), edit_question_path(question), title: 'Edit this Question' %>
-    <%= button_to fa_icon('trash-o'), question_path(question), method: :delete, title: 'Delete this Question',
-    form: {data: {turbo_confirm: 'This question will be deleted! Are you sure?'}} %>
   </div>
 </div>

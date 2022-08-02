@@ -1,0 +1,12 @@
+.user-box {
+  align-items: center;
+  background-color: rgb(233, 150, 25);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-box a {
+  color: #fff;
+}

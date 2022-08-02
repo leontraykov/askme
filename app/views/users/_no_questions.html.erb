@@ -1,0 +1,12 @@
+<div class="container text-center">
+  <p class="title-sm text-dark-red">
+    Nobody asked anything from this user
+  </p>
+
+  <div class="mt-lg mb-lg fa-5x text-light-grey">
+    <%= fa_stacked_icon 'question', base: 'circle-o' %>
+  </div>
+
+  <%= link_to "Let me ask you!", new_question_path(user_id: user),
+    class: 'button button-main' %>
+</div>
