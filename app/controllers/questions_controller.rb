@@ -18,8 +18,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @question = Question.new
-    @questions = Question.all.order("created_at DESC")
+    @questions = Question.order("created_at DESC").last(10)
+    @users = User.order("created_at DESC").last(10)
   end
 
   def update

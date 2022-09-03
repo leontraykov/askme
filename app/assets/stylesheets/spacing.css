@@ -26,20 +26,20 @@
   margin-right: 0.6em;
 }
 
-.ml-sm {
-  margin-left: 0.6em;
-}
-
-.mr .mr-md {
+.mr, .mr-md {
   margin-right: 1em;
-}
-
-.ml .ml-md {
-  margin-left: 1em;
 }
 
 .mr-lg {
   margin-right: 1.75em;
+}
+
+.ml-sm {
+  margin-left: 0.6em;
+}
+
+.ml, .ml-md {
+  margin-left: 1em;
 }
 
 .ml-lg {
