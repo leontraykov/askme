@@ -1,0 +1,37 @@
+.users-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.users-box-user {
+  flex-basis: 100px;
+  flex-grow: 0;
+  line-height: 100px;
+  text-align: center;
+}
+
+.users-box-user a {
+  color: white;
+  text-decoration: none;
+}
+
+.users-box-user-bg0 {
+  background: #000;
+}
+
+.users-box-user-bg1 {
+  background: rgb(135, 16, 16);
+}
+
+.users-box-user-bg2 {
+  background: rgb(50, 137, 157);
+}
+
+.users-box-user-bg3 {
+  background: rgb(118, 28, 143);
+}
+
+.users-box-user-bg4 {
+  background: rgb(5, 102, 70);
+}
