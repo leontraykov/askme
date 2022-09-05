@@ -5,6 +5,7 @@
 }
 
 .users-box-user {
+  max-height: 100px;
   flex-basis: 100px;
   flex-grow: 0;
   line-height: 100px;
@@ -18,20 +19,25 @@
 
 .users-box-user-bg0 {
   background: #000;
+  border: 3px solid gray;
 }
 
 .users-box-user-bg1 {
   background: rgb(135, 16, 16);
+  border: 3px solid  blue;
 }
 
 .users-box-user-bg2 {
   background: rgb(50, 137, 157);
+  border: 3px solid  rgb(222, 81, 104);
 }
 
 .users-box-user-bg3 {
   background: rgb(118, 28, 143);
+  border: 3px solid  rgb(93, 150, 6);
 }
 
 .users-box-user-bg4 {
   background: rgb(5, 102, 70);
+  border: 3px solid  rgb(252, 224, 5);
 }
