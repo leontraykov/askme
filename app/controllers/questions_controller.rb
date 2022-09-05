@@ -39,7 +39,6 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @user = User.find(params[:author])
   end
 
   def new
