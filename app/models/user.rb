@@ -15,6 +15,9 @@ class User < ApplicationRecord
 
   validates :header_color, format: { with: /\A#[a-f0-9]{6}\z/i }
 
+  include Gravtastic
+  gravtastic(secure: true, filetype: :png, size: 100, default: 'robohash')
+
   private
 
   def downcase_nickname

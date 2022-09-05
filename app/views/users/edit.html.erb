@@ -1,4 +1,14 @@
 <div class="container">
+  <h2 class="title">User data change form</h2>
+
+  <div class="mt">
+    <p><%= render partial: 'users/user_avatar', locals: {user: @user} %></p>
+
+    <p class="text-sm">If you'd like to change your avatar picture please use 
+      <%= link_to "Gravatar", 'https://gravatar.com' %>
+    </p>
+  </div>
+
   <% if @user.errors.any? %>
     <div class="mb">
       <% @user.errors.full_messages.each do |message| %>
@@ -6,8 +16,6 @@
       <% end %>
     </div>
   <% end %>
-
-  <h2 class="title">User data change form</h2>
 
   <div class="mt">
     <%= form_with model: @user, data: {turbo: false} do |form| %>
