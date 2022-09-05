@@ -11,11 +11,21 @@
 </div>
 
 <div class="container mt-sm">
-  <h2 class="title-lg">We got here <%= @questions.count %> questions:</h2>
+  <% if @questions.count == 1 %>
+    <h2 class="title-lg">We got here <%= @questions.count %> question:</h2>
+  <% elsif @questions.count < 10 %>
+    <h2 class="title-lg">We got here <%= @questions.count %> questions:</h2>
+  <% else %>
+    <h2 class="title-lg">The last 10 questions:</h2>
+  <% end %>
 </div>
 
 <% @questions.each do |question| %>
   <div class="mt-sm container">
+    <p class="mb text-sm text-gray">
+      Question <%= link_to "##{question.id}", question_path(question) %>
+      for user <%= link_to "@#{question.user.nickname}", user_path(question.user) %>
+    </p>
     <%= render question %>
   </div>
 <% end %>

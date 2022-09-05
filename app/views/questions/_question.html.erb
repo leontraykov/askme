@@ -1,14 +1,4 @@
-<div class="container question-separator">
-  <div class="text-sm text-gray question-author">
-    <div class="mb">
-      <% if question.author.present? %>
-        <i>This quesion is asked by <%= link_to display_nickname(question.author), user_path(question.author), class: 'mr' %></i>
-      <% else %>
-        <i>The author did not introduce himself</i>
-      <% end %>
-    </div>
-  </div>
-
+<div class="container border-top question-separator">
   <div class="mb-sm mt">
     <div>
       <%= simple_format h(question.body) %>
@@ -22,6 +12,17 @@
   <% end %>
 
   <div class ="text-sm question-footer">
+
+    <div class="text-gray">
+      <div class="mb">
+        <% if question.author.present? %>
+          <i>This question is asked by <%= link_to display_nickname(question.author), user_path(question.author), class: 'mr' %></i>
+        <% else %>
+          <i>The author did not introduce himself</i>
+        <% end %>
+      </div>
+    </div>
+
     <div class="text-gray">
       <%= l(question.created_at, format: :short) %>
     </div>
