@@ -16,7 +16,7 @@
     <div class="text-gray">
       <div class="mb">
         <% if question.author.present? %>
-          <i>This question is asked by <%= link_to display_nickname(question.author), user_path(question.author), class: 'mr' %></i>
+          <i>This question is asked by <%= link_to display_nickname(question.author), user_path(question.author.nickname), class: 'mr' %></i>
         <% else %>
           <i>The author did not introduce himself</i>
         <% end %>

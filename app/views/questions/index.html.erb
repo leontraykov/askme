@@ -24,7 +24,7 @@
   <div class="mt-sm container">
     <p class="mb text-sm text-gray">
       Question <%= link_to "##{question.id}", question_path(question) %>
-      for user <%= link_to "@#{question.user.nickname}", user_path(question.user) %>
+      for user <%= link_to "@#{question.user.nickname}", user_path(question.user.nickname) %>
     </p>
     <%= render question %>
   </div>
