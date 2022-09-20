@@ -18,7 +18,7 @@
 
   <div class="container">
     <div class="container">
-      <%= link_to 'AskMe', new_question_path(user_id: @user.id), class: "button button-yellow" %>
+      <%= link_to 'AskMe', new_question_path(user_nickname: @user), class: "button button-yellow" %>
 
       <p class="mt">
         <%= render 'questions/form', question: @question %>

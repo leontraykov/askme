@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   root to: 'questions#index'
 
-  get 'users/:nickname', to: 'users#show', as: :user
-  resources :users, except: %i[index show]
+  resources :users, param: :nickname, except: %i[index]
   resource :session, only: %i[new create destroy]
 
   resources :questions do
